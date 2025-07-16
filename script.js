@@ -1,18 +1,20 @@
-const ekta=document.addEventListener('DOMContentLoaded', () => {
-  const squares = document.querySelectorAll('.focus-sq');
+document.addEventListener('DOMContentLoaded', function () {
+  const squares = document.querySelectorAll('.square');
 
   squares.forEach((square) => {
     square.addEventListener('mouseenter', () => {
-      squares.forEach((s) => {
-        if (s !== square) {
-          s.classList.add('coffee');
+      squares.forEach((otherSquare) => {
+        if (otherSquare !== square) {
+          otherSquare.style.backgroundColor = '#6F4E37'; // Coffee
         }
       });
     });
 
     square.addEventListener('mouseleave', () => {
-      squares.forEach((s) => {
-        s.classList.remove('coffee');
+      squares.forEach((otherSquare) => {
+        if (otherSquare !== square) {
+          otherSquare.style.backgroundColor = '#E6E6FA'; // Lavender
+        }
       });
     });
   });
